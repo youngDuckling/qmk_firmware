@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+#include "color.h"
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -68,6 +70,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+void housekeeping_task_user(void) {
+  if (is_keyboard_master()) {
+    static uint32_t timer = 0; 
+    static HSV color = { .h = 0, .s = 255, .v = 255 };
+
+    if (timer_elapsed32(timer) < 400) 
+        return;
+
+    timer = timer_read32();
+
+    // increase hue -> change color
+    color.h++;
+
+    RGB rgb = hsv_to_rgb(color);
+    pimoroni_trackball_set_rgbw(rgb.r, rgb.g, rgb.b, 0);
+  }
+}
 
 #ifdef OLED_ENABLE
 #include <stdio.h>
