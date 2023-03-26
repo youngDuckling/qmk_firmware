@@ -6,6 +6,7 @@
         "pid": "0x3939",
         "device_version": "0.0.1"
     },
+    "pin_compatible": "elite_c",
     "development_board": "elite_c",
     "features": {
         "bootmagic": true,
