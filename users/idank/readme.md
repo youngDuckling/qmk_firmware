@@ -1,8 +1,9 @@
 This directory enables trackball / trackpoint functionality based on command
 line flags, regardless of the keyboard/keymap used.
 
-Examples:
+## Examples
 
+```
 # build corne with via, enable trackball with rgb rainbow effect, and set the
 # trackball rotation for the thumb position.
 make crkbd/rev1:via -j8 -e USER_NAME=idank -e POINTING_DEVICE=trackball -e TRACKBALL_RGB_RAINBOW=yes -e TRACKBALL_THUMB=yes
@@ -13,3 +14,4 @@ make lily58/rev1:via:flash -e USER_NAME=idank -e POINTING_DEVICE=trackball -e TR
 
 # build corne with via, enable trackpoint
 make crkbd/rev1:via -j8 -e USER_NAME=idank -e POINTING_DEVICE=trackpoint
+```
