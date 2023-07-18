@@ -41,8 +41,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-// Comment this line for thumb Corne. Leave uncommented for everything else.
-#define POINTING_DEVICE_ROTATION_90
-
-
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

@@ -12,14 +12,20 @@
 
 #endif
 
-#ifdef PS2_DRIVER_INTERRUPT
-
+// Common settings to both busywait and interrupt.
+#if defined(PS2_DRIVER_BUSYWAIT) || defined(PS2_DRIVER_INTERRUPT)
 #define PS2_MOUSE_INVERT_X
 #define PS2_MOUSE_INVERT_Y
 
 #define PS2_CLOCK_PIN   D3
 #define PS2_DATA_PIN    B4
+#endif
 
+#ifdef PS2_DRIVER_BUSYWAIT
+#define PS2_MOUSE_USE_REMOTE_MODE
+#endif
+
+#ifdef PS2_DRIVER_INTERRUPT
 #define PS2_INT_INIT()  do {    \
     EICRA |= ((1<<ISC31) |      \
               (0<<ISC30));      \
@@ -31,5 +37,4 @@
     EIMSK &= ~(1<<INT3);        \
 } while (0)
 #define PS2_INT_VECT   INT3_vect
-
 #endif
