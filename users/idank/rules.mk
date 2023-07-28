@@ -1,5 +1,9 @@
 # SRC += $(USER_PATH)/idank.c
 
+# Disable things we don't support that take up unnecessary space.
+RGBLIGHT_SUPPORTED = no
+RGB_MATRIX_SUPPORTED = no
+
 ifeq ($(strip $(POINTING_DEVICE)), trackball)
 	POINTING_DEVICE_ENABLE = yes
 	POINTING_DEVICE_DRIVER = pimoroni_trackball
@@ -8,9 +12,12 @@ ifeq ($(strip $(POINTING_DEVICE)), trackball)
 		SRC += quantum/color.c $(USER_PATH)/trackball_rgb_rainbow.c
 	endif
 
-	# Set this when the trackball is on the thumb.
-	ifeq ($(strip $(TRACKBALL_THUMB)), yes)
-		OPT_DEFS += -DTRACKBALL_THUMB
+	ifeq ($(strip $(TRACKBALL_POSITION)), left)
+		OPT_DEFS += -DTRACKBALL_POSITION_LEFT
+	else ifeq ($(strip $(TRACKBALL_POSITION)), thumb)
+		OPT_DEFS += -DTRACKBALL_POSITION_THUMB
+	else
+		OPT_DEFS += -DTRACKBALL_POSITION_RIGHT
 	endif
 endif
 

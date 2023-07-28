@@ -3,8 +3,6 @@
 
 #include QMK_KEYBOARD_H
 
-#include "color.h"
-
 #define KC_CTSC RCTL_T(KC_SCLN)
 #define KC_CTLA LCTL_T(KC_A)
 #define KC_LSHZ LSFT_T(KC_Z)
@@ -43,21 +41,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 };
-
-void housekeeping_task_user(void) {
-  if (is_keyboard_master()) {
-    static uint32_t timer = 0; 
-    static HSV color = { .h = 0, .s = 255, .v = 255 };
-
-    if (timer_elapsed32(timer) < 400) 
-        return;
-
-    timer = timer_read32();
-
-    // increase hue -> change color
-    color.h++;
-
-    RGB rgb = hsv_to_rgb(color);
-    pimoroni_trackball_set_rgbw(rgb.r, rgb.g, rgb.b, 0);
-  }
-}

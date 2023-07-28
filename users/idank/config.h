@@ -5,11 +5,13 @@
 #undef EE_HANDS
 #define MASTER_RIGHT
 
-// Index finger trackball needs to be rotated 90 degrees.
-#ifndef TRACKBALL_THUMB
-
+#ifdef TRACKBALL_POSITION_LEFT
+#define POINTING_DEVICE_ROTATION_270
+#endif
+#ifdef TRACKBALL_POSITION_RIGHT
 #define POINTING_DEVICE_ROTATION_90
-
+#endif
+#ifdef TRACKBALL_POSITION_THUMB
 #endif
 
 // Common settings to both busywait and interrupt.
