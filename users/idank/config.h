@@ -18,7 +18,7 @@
 #ifdef TRACKBALL_POSITION_RIGHT
 #define POINTING_DEVICE_ROTATION_90
 #endif
-#ifdef TRACKBALL_POSITION_THUMB
+#if defined(TRACKBALL_POSITION_THUMB) || defined(TRACKBALL_POSITION_MIDDLE)
 #endif
 
 // Common settings to both busywait and interrupt.
@@ -35,6 +35,7 @@
 #endif
 
 #ifdef PS2_DRIVER_INTERRUPT
+#define PS2_MOUSE_USE_REMOTE_MODE
 #define PS2_INT_INIT()  do {    \
     EICRA |= ((1<<ISC31) |      \
               (0<<ISC30));      \
