@@ -16,6 +16,8 @@ ifeq ($(strip $(POINTING_DEVICE)), trackball)
 		OPT_DEFS += -DTRACKBALL_POSITION_LEFT
 	else ifeq ($(strip $(TRACKBALL_POSITION)), thumb)
 		OPT_DEFS += -DTRACKBALL_POSITION_THUMB
+	else ifeq ($(strip $(TRACKBALL_POSITION)), middle)
+		OPT_DEFS += -DTRACKBALL_POSITION_MIDDLE
 	else
 		OPT_DEFS += -DTRACKBALL_POSITION_RIGHT
 	endif
@@ -24,5 +26,8 @@ endif
 ifeq ($(strip $(POINTING_DEVICE)), trackpoint)
 	PS2_MOUSE_ENABLE = yes
 	PS2_ENABLE = yes
-	PS2_DRIVER = busywait
+	# PS2_DRIVER = busywait
+	PS2_DRIVER = interrupt
 endif
+
+MOUSEKEY_ENABLE = yes
