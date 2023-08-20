@@ -31,3 +31,8 @@ ifeq ($(strip $(POINTING_DEVICE)), trackpoint)
 endif
 
 MOUSEKEY_ENABLE = yes
+
+ifeq ($(strip $(OLED_ENABLE)), yes)
+	OLED_ENABLE     = yes
+	OLED_DRIVER     = SSD1306
+endif
