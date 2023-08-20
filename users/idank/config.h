@@ -1,24 +1,23 @@
 #pragma once
 
-// We default to the right hand being the master.
 #undef MASTER_LEFT
 #undef EE_HANDS
 #undef MASTER_RIGHT
 
-#ifdef TRACKBALL_POSITION_LEFT
+#ifdef POINTING_DEVICE_POSITION_LEFT
 #define MASTER_LEFT
 #else
 #define MASTER_RIGHT
 #endif
 
 
-#ifdef TRACKBALL_POSITION_LEFT
+#ifdef POINTING_DEVICE_POSITION_LEFT
 #define POINTING_DEVICE_ROTATION_270
 #endif
-#ifdef TRACKBALL_POSITION_RIGHT
+#ifdef POINTING_DEVICE_POSITION_RIGHT
 #define POINTING_DEVICE_ROTATION_90
 #endif
-#if defined(TRACKBALL_POSITION_THUMB) || defined(TRACKBALL_POSITION_MIDDLE)
+#if defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_MIDDLE)
 #endif
 
 // Common settings to both busywait and interrupt.
@@ -28,14 +27,11 @@
 
 #define PS2_CLOCK_PIN   D3
 #define PS2_DATA_PIN    B4
-#endif
 
-#ifdef PS2_DRIVER_BUSYWAIT
 #define PS2_MOUSE_USE_REMOTE_MODE
 #endif
 
 #ifdef PS2_DRIVER_INTERRUPT
-#define PS2_MOUSE_USE_REMOTE_MODE
 #define PS2_INT_INIT()  do {    \
     EICRA |= ((1<<ISC31) |      \
               (0<<ISC30));      \
