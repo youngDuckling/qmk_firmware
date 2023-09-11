@@ -32,7 +32,9 @@ endif
 
 MOUSEKEY_ENABLE = yes
 
-ifeq ($(strip $(OLED_ENABLE)), yes)
+ifeq ($(strip $(OLED)), yes)
 	OLED_ENABLE     = yes
-	OLED_DRIVER     = SSD1306
+	OLED_DRIVER     = ssd1306
+else
+	OLED_ENABLE     = no
 endif
