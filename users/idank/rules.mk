@@ -30,6 +30,12 @@ ifeq ($(strip $(POINTING_DEVICE)), trackpoint)
 	PS2_DRIVER = interrupt
 endif
 
+ifeq ($(strip $(POINTING_DEVICE)), vendor)
+	PS2_MOUSE_ENABLE = yes
+	PS2_ENABLE = yes
+	OPT_DEFS += -DPOINTING_DEVICE_TRACKPOINT_VENDOR
+endif
+
 MOUSEKEY_ENABLE = yes
 
 ifeq ($(strip $(OLED)), yes)

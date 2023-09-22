@@ -20,6 +20,11 @@
 #if defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_MIDDLE)
 #endif
 
+#ifdef POINTING_DEVICE_TRACKPOINT_VENDOR
+#define PS2_MOUSE_INVERT_X
+#define PS2_MOUSE_INVERT_Y
+#endif
+
 // Common settings to both busywait and interrupt.
 #if defined(PS2_DRIVER_BUSYWAIT) || defined(PS2_DRIVER_INTERRUPT)
 #define PS2_MOUSE_INVERT_X
@@ -44,3 +49,5 @@
 } while (0)
 #define PS2_INT_VECT   INT3_vect
 #endif
+
+#define RP2040_FLASH_GD25Q64CS
