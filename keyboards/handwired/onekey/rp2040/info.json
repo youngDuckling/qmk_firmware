@@ -11,5 +11,12 @@
     },
     "ws2812": {
         "pin": "GP25"
+    },
+    "ps2": {
+        "enabled": true,
+        "mouse_enabled": true,
+        "driver": "vendor",
+        "data_pin": "GP2",
+        "clock_pin": "GP3"
     }
 }

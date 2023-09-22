@@ -30,6 +30,13 @@
     "layout_aliases": {
         "LAYOUT": "LAYOUT_split_3x5_2"
     },
+    "ps2": {
+        "enabled": true,
+        "mouse_enabled": true,
+        "driver": "vendor",
+        "data_pin": "D1",
+        "clock_pin": "D0"
+    },
     "layouts": {
         "LAYOUT_split_3x5_2": {
             "layout": [
