@@ -33,6 +33,7 @@ endif
 ifeq ($(strip $(POINTING_DEVICE)), vendor)
 	PS2_MOUSE_ENABLE = yes
 	PS2_ENABLE = yes
+	PS2_DRIVER = vendor
 	OPT_DEFS += -DPOINTING_DEVICE_TRACKPOINT_VENDOR
 endif
 

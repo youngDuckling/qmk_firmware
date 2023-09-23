@@ -21,8 +21,12 @@
 #endif
 
 #ifdef POINTING_DEVICE_TRACKPOINT_VENDOR
+#define PS2_PIO_USE_PIO1
 #define PS2_MOUSE_INVERT_X
 #define PS2_MOUSE_INVERT_Y
+#define PS2_DATA_PIN    D1
+#define PS2_CLOCK_PIN   D0
+#define PS2_MOUSE_USE_REMOTE_MODE
 #endif
 
 // Common settings to both busywait and interrupt.
