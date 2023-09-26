@@ -4,6 +4,8 @@
 #undef EE_HANDS
 #undef MASTER_RIGHT
 
+#define SERIAL_USART_TX_PIN GP1
+
 #ifdef POINTING_DEVICE_POSITION_LEFT
 #define MASTER_LEFT
 #else
@@ -21,12 +23,19 @@
 #endif
 
 #ifdef POINTING_DEVICE_TRACKPOINT_VENDOR
+// The default streaming mode is flaky and doesn't always work. This setting doesn't seem to affect performance.
+#define PS2_MOUSE_USE_REMOTE_MODE
+
+// Serial uses PIO0, change PS2 to PIO1.
 #define PS2_PIO_USE_PIO1
+
 #define PS2_MOUSE_INVERT_X
 #define PS2_MOUSE_INVERT_Y
-#define PS2_DATA_PIN    D1
-#define PS2_CLOCK_PIN   D0
-#define PS2_MOUSE_USE_REMOTE_MODE
+#define PS2_DATA_PIN    GP2
+#define PS2_CLOCK_PIN   GP3
+
+// Start faster when keyboard resets.
+#define PS2_MOUSE_INIT_DELAY 500
 #endif
 
 // Common settings to both busywait and interrupt.

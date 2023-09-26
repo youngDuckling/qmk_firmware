@@ -1,3 +1,4 @@
+SERIAL_DRIVER = vendor
 # SRC += $(USER_PATH)/idank.c
 
 # Disable things we don't support that take up unnecessary space.
