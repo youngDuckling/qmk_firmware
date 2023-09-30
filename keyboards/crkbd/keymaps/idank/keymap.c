@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       SC_LSPO, KC_PSTRING, XXXXXXX, BALL_SCR,BALL_LC, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      SC_RCPC, XXXXXXX, XXXXXXX, XXXXXXX, BALL_RC, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      SC_RCPC, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_RALT, _______,  KC_SPC,     KC_ENT,   _______, KC_LGUI
                                       //`--------------------------'  `--------------------------'
@@ -105,7 +105,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     if (set_scrolling) {
         mouse_report.h = mouse_report.x;
         mouse_report.v = mouse_report.y;
-        mouse_report.x = mouse_report.y = 0; 
+        mouse_report.x = mouse_report.y = 0;
     }
     return mouse_report;
 }
