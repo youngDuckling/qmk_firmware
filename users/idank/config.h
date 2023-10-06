@@ -34,8 +34,8 @@
 #define PS2_MOUSE_INVERT_X
 #define PS2_MOUSE_INVERT_Y
 
-#define PS2_CLOCK_PIN   D0
-#define PS2_DATA_PIN    D1
+#define PS2_CLOCK_PIN   D3
+#define PS2_DATA_PIN    B4
 
 #define PS2_MOUSE_USE_REMOTE_MODE
 #endif
