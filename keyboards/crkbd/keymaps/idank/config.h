@@ -25,6 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_ROTATION_90
 #define PIMORONI
 
+#define PIMORONI_TRACKBALL_SCALE 10
+
 //comment that out if your trackball is on the left side
 // #define TRACKBALL_RIGHT
 
