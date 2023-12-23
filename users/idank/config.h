@@ -66,4 +66,5 @@
 #define PS2_INT_VECT   INT3_vect
 #endif
 
-#define RP2040_FLASH_GD25Q64CS
+// Sea-Picro bought with white LED use a different flash chip than the default QMK, uncomment this if flashing doesn't work properly.
+// #define RP2040_FLASH_GD25Q64CS
