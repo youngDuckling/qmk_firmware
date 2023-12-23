@@ -22,8 +22,10 @@
     // Serial uses PIO0, change PS2 to PIO1.
     #define PS2_PIO_USE_PIO1
 
+    #if !defined(KEYBOARD_lily58_rev1)
     #define PS2_MOUSE_INVERT_X
     #define PS2_MOUSE_INVERT_Y
+    #endif
 
     #define PS2_DATA_PIN    GP2
     #define PS2_CLOCK_PIN   GP3
@@ -32,4 +34,5 @@
     #define PS2_MOUSE_INIT_DELAY 500
 #endif
 
-#define RP2040_FLASH_GD25Q64CS
+// Sea-Picro bought with white LED use a different flash chip than the default QMK, uncomment this if flashing doesn't work properly.
+// #define RP2040_FLASH_GD25Q64CS
