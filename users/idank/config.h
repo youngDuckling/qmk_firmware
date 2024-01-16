@@ -13,17 +13,28 @@
 #endif
 
 
-#ifdef POINTING_DEVICE_POSITION_LEFT
-#define POINTING_DEVICE_ROTATION_270
+// Configuration for dual trackballs.
+#ifdef POINTING_DEVICE_COMBINED
+    // Left side can only go in this configuration.
+    #define POINTING_DEVICE_ROTATION_270
+    // Determine right side rotation based on POINTING_DEVICE_POSITION flag.
+#   if POINTING_DEVICE_POSITION_THUMB_OUTER
+      #define POINTING_DEVICE_ROTATION_270_RIGHT
+#   elif defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_THUMB_INNER)
+#   else
+       #define POINTING_DEVICE_ROTATION_90_RIGHT
+#   endif
+#else
+#   ifdef POINTING_DEVICE_POSITION_LEFT
+      #define POINTING_DEVICE_ROTATION_270
+#   elif POINTING_DEVICE_POSITION_RIGHT
+       #define POINTING_DEVICE_ROTATION_90
+#   elif POINTING_DEVICE_POSITION_THUMB_OUTER
+      #define POINTING_DEVICE_ROTATION_270
+#   elif defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_THUMB_INNER) || defined(POINTING_DEVICE_POSITION_MIDDLE)
+#   endif
 #endif
-#ifdef POINTING_DEVICE_POSITION_RIGHT
-#define POINTING_DEVICE_ROTATION_90
-#endif
-#ifdef POINTING_DEVICE_POSITION_THUMB_OUTER
-#define POINTING_DEVICE_ROTATION_270
-#endif
-#if defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_THUMB_INNER) || defined(POINTING_DEVICE_POSITION_MIDDLE)
-#endif
+
 
 #ifdef POINTING_DEVICE_TRACKPOINT_VENDOR
 // The default streaming mode is flaky and doesn't always work. This setting doesn't seem to affect performance.

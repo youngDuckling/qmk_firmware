@@ -28,6 +28,18 @@ ifeq ($(strip $(POINTING_DEVICE)), trackball)
 	endif
 endif
 
+ifeq ($(strip $(POINTING_DEVICE)), trackball_trackball)
+	OPT_DEFS += -DSPLIT_POINTING_ENABLE
+	OPT_DEFS += -DPOINTING_DEVICE_COMBINED
+
+	POINTING_DEVICE_ENABLE = yes
+	POINTING_DEVICE_DRIVER = pimoroni_trackball
+
+	ifeq ($(strip $(TRACKBALL_RGB_RAINBOW)), yes)
+		SRC += quantum/color.c $(USER_PATH)/trackball_rgb_rainbow.c
+	endif
+endif
+
 ifeq ($(strip $(POINTING_DEVICE)), trackpoint)
 	PS2_MOUSE_ENABLE = yes
 	PS2_ENABLE = yes

@@ -3,7 +3,13 @@
 #include "color.h"
 
 void housekeeping_task_user(void) {
-  if (is_keyboard_master()) {
+  bool run_animation = is_keyboard_master();
+  // With two trackballs, always run the animation. Note that if TRACKBALL_RGB_RAINBOW isn't 'yes' we're not including
+  // this file in the build.
+#if defined(SPLIT_POINTING_ENABLE)
+  run_animation = true;
+#endif
+  if (run_animation) {
     static uint32_t timer = 0;
     static HSV color = { .h = 0, .s = 255, .v = 255 };
 
