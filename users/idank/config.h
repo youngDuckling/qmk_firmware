@@ -13,6 +13,7 @@
 #endif
 
 
+#ifdef POINTING_DEVICE_DRIVER_pimoroni_trackball
 // Configuration for dual trackballs.
 #ifdef POINTING_DEVICE_COMBINED
     // Left side can only go in this configuration.
@@ -34,7 +35,14 @@
 #   elif defined(POINTING_DEVICE_POSITION_THUMB) || defined(POINTING_DEVICE_POSITION_THUMB_INNER) || defined(POINTING_DEVICE_POSITION_MIDDLE)
 #   endif
 #endif
+#endif
 
+#ifdef POINTING_DEVICE_DRIVER_cirque_pinnacle_i2c
+#define CIRQUE_PINNACLE_DIAMETER_MM 35
+// Tap for left click.
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+#endif
 
 #ifdef POINTING_DEVICE_TRACKPOINT_VENDOR
 // The default streaming mode is flaky and doesn't always work. This setting doesn't seem to affect performance.

@@ -28,6 +28,11 @@ ifeq ($(strip $(POINTING_DEVICE)), trackball)
 	endif
 endif
 
+ifeq ($(strip $(POINTING_DEVICE)), cirque35)
+	POINTING_DEVICE_ENABLE = yes
+	POINTING_DEVICE_DRIVER = cirque_pinnacle_i2c
+endif
+
 ifeq ($(strip $(POINTING_DEVICE)), trackball_trackball)
 	OPT_DEFS += -DSPLIT_POINTING_ENABLE
 	OPT_DEFS += -DPOINTING_DEVICE_COMBINED
