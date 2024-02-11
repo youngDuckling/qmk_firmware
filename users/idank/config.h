@@ -15,6 +15,13 @@
     #define POINTING_DEVICE_ROTATION_270
 #endif
 
+#ifdef POINTING_DEVICE_TRACKPOINT_CIRQUE35
+    #define MASTER_LEFT
+#endif
+#ifdef POINTING_DEVICE_CIRQUE35_TRACKPOINT
+    #define MASTER_RIGHT
+#endif
+
 #ifdef POINTING_DEVICE_DRIVER_ps2
     // The default streaming mode is flaky and doesn't always work. This setting doesn't seem to affect performance.
     #define PS2_MOUSE_USE_REMOTE_MODE
@@ -34,5 +41,9 @@
     #define PS2_MOUSE_INIT_DELAY 500
 #endif
 
-// Sea-Picro bought with white LED use a different flash chip than the default QMK, uncomment this if flashing doesn't work properly.
-// #define RP2040_FLASH_GD25Q64CS
+#ifdef POINTING_DEVICE_DRIVER_cirque_pinnacle_i2c
+#define CIRQUE_PINNACLE_DIAMETER_MM 35
+// Tap for left click.
+#define CIRQUE_PINNACLE_TAP_ENABLE
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+#endif
