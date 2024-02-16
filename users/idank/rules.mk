@@ -62,6 +62,7 @@ endif
 MOUSEKEY_ENABLE = yes
 
 ifeq ($(strip $(OLED)), yes)
+	OPT_DEFS += -DOLED_ENABLE
 	OLED_ENABLE     = yes
 	OLED_DRIVER     = ssd1306
 else
