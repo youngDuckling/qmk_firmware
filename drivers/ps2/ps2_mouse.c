@@ -85,12 +85,14 @@ void ps2_mouse_read(report_mouse_t* mouse_report) {
         return;
     }
 
-    // Reading the ps2 mouse too often can cause the pointing device on the other side to lock up.
+#ifdef POINTING_DEVICE_TRACKBALL_TRACKPOINT || POINTING_DEVICE_TRACKPOINT_TRACKBALL
+    // Reading the ps2 mouse too often can cause the Pimoroni on the other side to lock up.
     static uint32_t last_exec = 0;
     if (timer_elapsed32(last_exec) < 15) {
         return;
     }
     last_exec = timer_read32();
+#endif
 
     /* receives packet from mouse */
 #ifdef PS2_MOUSE_USE_REMOTE_MODE
