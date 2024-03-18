@@ -82,3 +82,7 @@
     // Start faster when keyboard resets.
     #define PS2_MOUSE_INIT_DELAY 500
 #endif
+
+#ifdef OLED_ENABLE
+    #define SPLIT_LAYER_STATE_ENABLE
+#endif

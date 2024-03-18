@@ -109,3 +109,7 @@ ifeq ($(strip $(OLED)), yes)
 else
 	OLED_ENABLE     = no
 endif
+
+ifeq ($(strip $(OLED_FLIP)), yes)
+	OPT_DEFS += -DOLED_FLIP
+endif
