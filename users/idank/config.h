@@ -71,10 +71,8 @@
     // Serial uses PIO0, change PS2 to PIO1.
     #define PS2_PIO_USE_PIO1
 
-    #if !defined(KEYBOARD_lily58_rev1)
     #define PS2_MOUSE_INVERT_X
     #define PS2_MOUSE_INVERT_Y
-    #endif
 
     #define PS2_DATA_PIN    GP2
     #define PS2_CLOCK_PIN   GP3
