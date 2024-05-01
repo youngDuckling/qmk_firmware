@@ -1,12 +1,3 @@
-# MCU name
-MCU = atmega32u4
-
-# Bootloader selection
-BOOTLOADER = caterina
-
-# Link Time Optimization required for size.
-LTO_ENABLE = yes
-
 # Build Options
 BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
 EXTRAKEY_ENABLE = no        # Audio control and System control
@@ -21,7 +12,7 @@ CUSTOM_MATRIX = lite
 SRC += lib/duplexmatrix/duplexmatrix.c
 
 # Split keyboard.
-SPLIT_KEYBOARD = yes
+SERIAL_DRIVER = vendor
 
 # Optical sensor driver for trackball.
 POINTING_DEVICE_ENABLE = yes
@@ -30,7 +21,7 @@ SRC += drivers/pmw3360/pmw3360.c
 QUANTUM_LIB_SRC += spi_master.c # Optical sensor use SPI to communicate
 
 # This is unnecessary for processing KC_MS_BTN*.
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
 
 # Enabled only one of RGBLIGHT and RGB_MATRIX if necessary.
 RGBLIGHT_ENABLE = no        # Enable RGBLIGHT
