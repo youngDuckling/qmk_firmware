@@ -1,3 +1,10 @@
+VALID_POINTING_DEVICE_CONFIGURATIONS := trackpoint_trackball trackball_trackpoint trackpoint_cirque35 cirque35_trackpoint
+ifdef POINTING_DEVICE
+    ifeq ($(filter $(POINTING_DEVICE),$(VALID_POINTING_DEVICE_CONFIGURATIONS)),)
+        $(call CATASTROPHIC_ERROR,Invalid POINTING_DEVICE,POINTING_DEVICE="$(POINTING_DEVICE)" is not a valid pointing device configuration)
+	endif
+endif
+
 SERIAL_DRIVER = vendor
 # SRC += $(USER_PATH)/idank.c
 
