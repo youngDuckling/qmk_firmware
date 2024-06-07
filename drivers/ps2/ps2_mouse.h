@@ -156,7 +156,7 @@ void ps2_mouse_init(void);
 
 void ps2_mouse_init_user(void);
 
-void ps2_mouse_task(void);
+void ps2_mouse_read(report_mouse_t* mouse_report);
 
 void ps2_mouse_disable_data_reporting(void);
 
